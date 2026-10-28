@@ -19,7 +19,6 @@ class EvensAndOdds(SinglyLinkedList):
             current.next = None
 
             if current.data % 2 == 0:
-                even_list.append(current.data)
 
                 if even_list._head is None:
                     even_list._head = current
