@@ -104,10 +104,16 @@ class TestSinglyLinkedList(unittest.TestCase):
 
     def test_empty_list(self):
         self.assertTrue(self.singly_linked_list.is_empty())
-
         self.singly_linked_list.append(1)
-
         self.assertFalse(self.singly_linked_list.is_empty())
+
+    def test_iterable(self):
+        self.singly_linked_list.append(1)
+        self.singly_linked_list.append(2)
+        self.singly_linked_list.append(3)
+
+        values = [value for value in self.singly_linked_list]
+        self.assertEqual(values, [1, 2, 3])
 
 if __name__ == "__main__":
     unittest.main()
