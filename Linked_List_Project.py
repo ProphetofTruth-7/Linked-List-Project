@@ -99,5 +99,11 @@ class SinglyLinkedList:
             self.prepend(value)
 
     def remove_all_target(self, value):
-        while self.contains(value):
-            self.remove(value)
+        targets_removed = 0
+        if self.contains(value):
+            while self.contains(value):
+                self.remove(value)
+                targets_removed += 1
+            return targets_removed
+        else:
+            return 0

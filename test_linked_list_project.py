@@ -7,6 +7,7 @@ class TestSinglyLinkedList(unittest.TestCase):
     def setUp(self):
         self.singly_linked_list = SinglyLinkedList()
         self.test_list1 = [1, 2, 3, 4]
+        self.test_list2 = [3, 1, 2, 3, 3, 4, 3]
 
 
     def test_simple_append(self):
@@ -115,7 +116,20 @@ class TestSinglyLinkedList(unittest.TestCase):
         self.assertEqual([5,4,3,2,1], iterated_list)
 
     def test_remove_all(self):
-        return
+        self.singly_linked_list.build_forward_from_list(self.test_list2)
+
+        self.singly_linked_list.remove_all_target(3)
+
+        self.assertEqual(len(self.singly_linked_list), 3)
+        self.assertFalse(self.singly_linked_list.contains(3))
+    def test_remove_all_targets_included(self):
+        self.singly_linked_list.build_forward_from_list(self.test_list2)
+
+        self.assertEqual(self.singly_linked_list.remove_all_target(3), 4)
+    def test_remove_all_missing_target(self):
+        self.singly_linked_list.build_forward_from_list(self.test_list2)
+
+        self.assertEqual(self.singly_linked_list.remove_all_target(53), 0)
         
 
 if __name__ == "__main__":
