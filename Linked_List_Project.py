@@ -21,3 +21,14 @@ class SinglyLinkedList:
             self._tail = new_node
 
         self._count += 1
+
+    def prepend(self, value):
+        new_node = Node(value)
+
+        new_node.next = self._head
+        self._head = new_node
+
+        if self._tail is None:
+            self._tail = new_node
+
+        self._count += 1
