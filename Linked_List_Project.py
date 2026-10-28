@@ -45,3 +45,21 @@ class SinglyLinkedList:
                 self._count += 1
                 break
             current = current.next
+
+    def remove(self,value):
+        current = self._head
+        previous = None
+        while current:
+            if current.data != value:
+                previous = current
+                current = current.next
+            else:
+                if previous is None:
+                    self._head = current.next
+                else:
+                    previous.next = current.next
+                    current = None
+                self._count -= 1
+                break
+
+
