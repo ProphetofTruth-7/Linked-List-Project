@@ -91,5 +91,9 @@ class SinglyLinkedList:
             yield current.data
             current = current.next
 
-
-
+    def build_forward_from_list(self, list):
+        for value in list:
+            self.append(value)
+    def build_backward_from_list(self, list):
+        for value in list:
+            self.prepend(value)

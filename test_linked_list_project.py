@@ -115,5 +115,20 @@ class TestSinglyLinkedList(unittest.TestCase):
         values = [value for value in self.singly_linked_list]
         self.assertEqual(values, [1, 2, 3])
 
+    def test_forward_build(self):
+        test_list = [1, 2, 3, 4, 5]
+        self.singly_linked_list.build_forward_from_list(test_list)    
+        iterated_list = [value for value in self.singly_linked_list]
+
+        self.assertEqual(len(self.singly_linked_list), 5)
+        self.assertEqual(test_list, iterated_list)
+    def test_backward_build(self):
+        test_list = [1, 2, 3, 4, 5]
+        self.singly_linked_list.build_backward_from_list(test_list)    
+        iterated_list = [value for value in self.singly_linked_list]
+
+        self.assertEqual(len(self.singly_linked_list), 5)
+        self.assertEqual([5,4,3,2,1], iterated_list)
+
 if __name__ == "__main__":
     unittest.main()
