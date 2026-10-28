@@ -51,8 +51,8 @@ class SinglyLinkedList:
         while current is not None:
             if current.data == value:
                 return True
-            else:
-                return False
+            current = current.next
+        return False
 
     def is_empty(self):
         if self._count == 0:
@@ -71,8 +71,14 @@ class SinglyLinkedList:
                 if previous is None:
                     self._head = current.next
                 else:
-                    previous.next = current.next
-                    current = None
+                    if current == self._tail:
+                        self._tail = previous
+                    if current == self._head and current == self._tail:
+                        self._head = None
+                        self._tail = None
+                    else: 
+                        previous.next = current.next
+                        current = None
                 self._count -= 1
                 break
 
