@@ -97,3 +97,7 @@ class SinglyLinkedList:
     def build_backward_from_list(self, list):
         for value in list:
             self.prepend(value)
+
+    def remove_all_target(self, value):
+        while self.contains(value):
+            self.remove(value)
