@@ -115,6 +115,7 @@ class TestSinglyLinkedList(unittest.TestCase):
         self.assertEqual(len(self.singly_linked_list), 5)
         self.assertEqual([5,4,3,2,1], iterated_list)
 
+
     def test_remove_all(self):
         self.singly_linked_list.build_forward_from_list(self.test_list2)
 
@@ -130,6 +131,18 @@ class TestSinglyLinkedList(unittest.TestCase):
         self.singly_linked_list.build_forward_from_list(self.test_list2)
 
         self.assertEqual(self.singly_linked_list.remove_all_target(53), 0)
+
+    
+    def test_str_method(self):
+        self.singly_linked_list.build_forward_from_list(self.test_list1)
+
+        self.assertEqual(str(self.singly_linked_list), "Head>  1 -> 2 -> 3 -> 4  <Tail")
+    def test_str_method_single(self):
+        self.singly_linked_list.append(1)
+
+        self.assertEqual(str(self.singly_linked_list), "Head>  1  <Tail")
+    def test_str_method_zero(self):
+        self.assertEqual(str(self.singly_linked_list), "Head>    <Tail")
         
 
 if __name__ == "__main__":

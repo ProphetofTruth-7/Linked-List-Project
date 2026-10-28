@@ -90,6 +90,13 @@ class SinglyLinkedList:
         while current is not None:
             yield current.data
             current = current.next
+    def __str__(self):
+        values = []
+        current = self._head
+        while current is not None:
+            values.append(str(current.data))
+            current = current.next
+        return "Head>  " + " -> ".join(values) + "  <Tail"
 
     def build_forward_from_list(self, list):
         for value in list:
