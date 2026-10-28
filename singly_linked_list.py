@@ -1,4 +1,3 @@
-#main.py
 class Node:
     def __init__(self, data):
         self.data = data
@@ -43,9 +42,9 @@ class SinglyLinkedList:
                 if current == self._tail:
                     self._tail = new_node
                 self._count += 1
-                break
+                return
             current = current.next
-        raise ValueError(f"Target value {target} not found in the list.")
+        raise ValueError()
 
     def contains(self, value):
         current = self._head
@@ -81,8 +80,8 @@ class SinglyLinkedList:
                         previous.next = current.next
                         current = None
                 self._count -= 1
-                break
-        raise ValueError(f"Target value {target} not found in the list.")
+                return
+        raise ValueError()
 
     def __len__(self):
         return self._count
