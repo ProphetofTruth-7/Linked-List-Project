@@ -31,5 +31,22 @@ class TestSinglyLinkedList(unittest.TestCase):
         self.assertEqual(self.singly_linked_list._head.next.data, 2)
         self.assertEqual(self.singly_linked_list._tail.data, 1)
 
+    def test_simple_insert(self):
+        self.singly_linked_list.append(1)
+        self.singly_linked_list.append(2)
+        self.singly_linked_list.append(3)
+        self.singly_linked_list.append(4)
+
+        self.singly_linked_list.insert_after(3, 69)
+        self.assertEqual(self.singly_linked_list._head.next.next.next.data, 69)
+    def test_tail_insert(self):
+        self.singly_linked_list.append(1)
+        self.singly_linked_list.append(2)
+        self.singly_linked_list.append(3)
+        self.singly_linked_list.append(4)
+
+        self.singly_linked_list.insert_after(4, 69)
+        self.assertEqual(self.singly_linked_list._tail.data, 69)
+
 if __name__ == "__main__":
     unittest.main()

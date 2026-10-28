@@ -32,3 +32,16 @@ class SinglyLinkedList:
             self._tail = new_node
 
         self._count += 1
+
+    def insert_after(self, target_value, new_value):
+        current = self._head
+        while current is not None:
+            if current.data == target_value:
+                new_node = Node(new_value)
+                new_node.next = current.next
+                current.next = new_node
+                if current == self._tail:
+                    self._tail = new_node
+                self._count += 1
+                break
+            current = current.next
