@@ -54,6 +54,12 @@ class SinglyLinkedList:
             else:
                 return False
 
+    def is_empty(self):
+        if self._count == 0:
+            return True
+        else:
+            return False
+
     def remove(self,value):
         current = self._head
         previous = None

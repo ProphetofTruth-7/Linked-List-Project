@@ -94,11 +94,20 @@ class TestSinglyLinkedList(unittest.TestCase):
         self.assertEqual(self.singly_linked_list._head, None)
         self.assertEqual(self.singly_linked_list._count, 0)
 
+
     def test_list_contains(self):
         self.singly_linked_list.append(1)
 
         self.assertTrue(self.singly_linked_list.contains(1))
         self.assertFalse(self.singly_linked_list.contains(2))
+
+
+    def test_empty_list(self):
+        self.assertTrue(self.singly_linked_list.is_empty())
+
+        self.singly_linked_list.append(1)
+
+        self.assertFalse(self.singly_linked_list.is_empty())
 
 if __name__ == "__main__":
     unittest.main()
