@@ -44,7 +44,7 @@ class SinglyLinkedList:
                 self._count += 1
                 return
             current = current.next
-        raise ValueError()
+        raise ValueError("Your target value is not in the list!")
 
     def contains(self, value):
         current = self._head
@@ -81,7 +81,7 @@ class SinglyLinkedList:
                         current = None
                 self._count -= 1
                 return
-        raise ValueError()
+        raise ValueError("Your target value is not in the list!")
 
     def __len__(self):
         return self._count

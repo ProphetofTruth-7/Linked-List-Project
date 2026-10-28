@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>182792e2-10b4-4bf6-87fb-2f6bb73032b3</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>test_linked_list_project.py</StartupFile>
+    <StartupFile>test_singly_linked_list.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,8 +22,11 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="evens_and_odds_subclass.py" />
+    <Compile Include="main.py" />
     <Compile Include="singly_linked_list.py" />
-    <Compile Include="test_linked_list_project.py" />
+    <Compile Include="test_evens_and_odds.py" />
+    <Compile Include="test_singly_linked_list.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
