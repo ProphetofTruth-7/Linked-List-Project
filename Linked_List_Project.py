@@ -33,11 +33,11 @@ class SinglyLinkedList:
 
         self._count += 1
 
-    def insert_after(self, target_value, new_value):
+    def insert_after(self, target, new):
         current = self._head
         while current is not None:
-            if current.data == target_value:
-                new_node = Node(new_value)
+            if current.data == target:
+                new_node = Node(new)
                 new_node.next = current.next
                 current.next = new_node
                 if current == self._tail:
@@ -45,6 +45,14 @@ class SinglyLinkedList:
                 self._count += 1
                 break
             current = current.next
+
+    def contains(self, value):
+        current = self._head
+        while current is not None:
+            if current.data == value:
+                return True
+            else:
+                return False
 
     def remove(self,value):
         current = self._head
