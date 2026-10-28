@@ -96,12 +96,14 @@ class TestSinglyLinkedList(unittest.TestCase):
         self.singly_linked_list.append(1)
         self.assertFalse(self.singly_linked_list.is_empty())
 
+
     def test_iterable(self):
         self.singly_linked_list.build_forward_from_list(self.test_list1)
 
         values = [value for value in self.singly_linked_list]
         self.assertEqual(values, [1, 2, 3, 4])
 
+        
     def test_forward_build(self):
         test_list = [1, 2, 3, 4, 5]
         self.singly_linked_list.build_forward_from_list(test_list)    
@@ -116,6 +118,7 @@ class TestSinglyLinkedList(unittest.TestCase):
 
         self.assertEqual(len(self.singly_linked_list), 5)
         self.assertEqual([5,4,3,2,1], iterated_list)
+        self.assertEqual([1, 2, 3, 4, 5], test_list)
 
 
     def test_remove_all(self):
