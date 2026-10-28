@@ -21,7 +21,7 @@ class SinglyLinkedList:
             self._tail = new_node
 
         self._count += 1
-
+        
     def prepend(self, value):
         new_node = Node(value)
 
@@ -75,5 +75,15 @@ class SinglyLinkedList:
                     current = None
                 self._count -= 1
                 break
+
+    def __len__(self):
+        return self._count
+
+    def __iter__(self):
+        current = self._head
+        while current is not None:
+            yield current.data
+            current = current.next
+
 
 
