@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>182792e2-10b4-4bf6-87fb-2f6bb73032b3</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>test_evens_and_odds.py</StartupFile>
+    <StartupFile>main.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
