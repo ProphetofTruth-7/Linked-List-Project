@@ -81,12 +81,17 @@ class TestSinglyLinkedList(unittest.TestCase):
         self.singly_linked_list.remove(1)
         self.assertEqual(self.singly_linked_list._head.data, 2)
         self.assertEqual(len(self.singly_linked_list), 3)
-    def test_total_remove(self):
+    def test_final_remove(self):
         self.singly_linked_list.append(1)
 
         self.singly_linked_list.remove(1)
         self.assertEqual(self.singly_linked_list._head, None)
         self.assertEqual(len(self.singly_linked_list), 0)
+    def test_missing_remove(self):
+        self.singly_linked_list.append(1)
+
+        with self.assertRaises(ValueError):
+            self.singly_linked_list.remove(6)
 
 
     def test_list_contains(self):
