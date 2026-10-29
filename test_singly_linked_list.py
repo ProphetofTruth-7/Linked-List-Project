@@ -56,6 +56,11 @@ class TestSinglyLinkedList(unittest.TestCase):
         self.singly_linked_list.insert_after(4, 69)
         self.assertEqual(self.singly_linked_list._tail.data, 69)
         self.assertEqual(len(self.singly_linked_list), 5)
+    def test_missing_insert(self):
+        self.singly_linked_list.build_forward_from_list(self.test_list1) 
+
+        with self.assertRaises(ValueError):
+            self.singly_linked_list.insert_after(70, 69)
 
 
     def test_simple_remove(self):
