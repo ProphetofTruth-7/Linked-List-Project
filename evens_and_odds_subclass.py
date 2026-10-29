@@ -5,6 +5,9 @@ class EvensAndOdds(SinglyLinkedList):
         super().__init__()
 
     def split_even_odd(self):
+        if self._head is None:
+            raise ValueError("The list is empty!")
+
         even_list = SinglyLinkedList()
         odd_list = SinglyLinkedList()
 
