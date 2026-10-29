@@ -14,6 +14,8 @@ class TestEvensAndOdds(unittest.TestCase):
 
     def test_ordered_splitter(self):
         self.evens_and_odds_list.build_forward_from_list(self.test_list3)
+        mover1 = self.evens_and_odds_list._head
+        mover2 = self.evens_and_odds_list._head.next
         even_list, odd_list = self.evens_and_odds_list.split_even_odd()
 
         self.assertEqual(len(self.evens_and_odds_list), 0)
@@ -25,6 +27,8 @@ class TestEvensAndOdds(unittest.TestCase):
         self.assertEqual(str(even_list), "Head>  2 -> 4 -> 6 -> 8 -> 10  <Tail")
         self.assertEqual(str(odd_list), "Head>  1 -> 3 -> 5 -> 7 -> 9 -> 11 -> 13 -> 15  <Tail")
 
+        self.assertIs(odd_list._head, mover1)
+        self.assertIs(even_list._head, mover2)
         self.assertEqual(even_list._tail.next, None)
         self.assertEqual(even_list._tail.data, 10)
         self.assertEqual(odd_list._tail.next, None)
@@ -33,12 +37,16 @@ class TestEvensAndOdds(unittest.TestCase):
 
     def test_unordered_splitter(self):
         self.evens_and_odds_list.build_forward_from_list(self.test_list4)
+        mover1 = self.evens_and_odds_list._head
+        mover2 = self.evens_and_odds_list._head.next
         even_list, odd_list = self.evens_and_odds_list.split_even_odd()
 
         self.assertEqual(len(self.evens_and_odds_list), 0)
         self.assertEqual(self.evens_and_odds_list._head, None)
         self.assertEqual(self.evens_and_odds_list._tail, None)
 
+        self.assertIs(odd_list._head, mover2)
+        self.assertIs(even_list._head, mover1)
         self.assertEqual(len(even_list), 7)
         self.assertEqual(len(odd_list), 4)
         self.assertEqual(str(even_list), "Head>  86 -> 34 -> 78 -> 34 -> 20 -> 4 -> 32  <Tail")
@@ -52,12 +60,14 @@ class TestEvensAndOdds(unittest.TestCase):
 
     def test_even_splitter(self):
         self.evens_and_odds_list.build_forward_from_list(self.test_list5)
+        mover1 = self.evens_and_odds_list._head
         even_list, odd_list = self.evens_and_odds_list.split_even_odd()
 
         self.assertEqual(len(self.evens_and_odds_list), 0)
         self.assertEqual(self.evens_and_odds_list._head, None)
         self.assertEqual(self.evens_and_odds_list._tail, None)
 
+        self.assertIs(even_list._head, mover1)
         self.assertEqual(len(even_list), 4)
         self.assertEqual(len(odd_list), 0)
         self.assertEqual(str(even_list), "Head>  2 -> 6 -> 8 -> 10  <Tail")
@@ -70,12 +80,14 @@ class TestEvensAndOdds(unittest.TestCase):
 
     def test_odd_splitter(self):
         self.evens_and_odds_list.build_forward_from_list(self.test_list6)
+        mover1 = self.evens_and_odds_list._head
         even_list, odd_list = self.evens_and_odds_list.split_even_odd()
 
         self.assertEqual(len(self.evens_and_odds_list), 0)
         self.assertEqual(self.evens_and_odds_list._head, None)
         self.assertEqual(self.evens_and_odds_list._tail, None)
 
+        self.assertIs(odd_list._head, mover1)
         self.assertEqual(len(even_list), 0)
         self.assertEqual(len(odd_list), 4)
         self.assertEqual(str(even_list), "Head>    <Tail")
@@ -88,12 +100,16 @@ class TestEvensAndOdds(unittest.TestCase):
 
     def test_single_even_splitter(self):
         self.evens_and_odds_list.build_forward_from_list(self.test_list7)
+        mover1 = self.evens_and_odds_list._head
+        mover2 = self.evens_and_odds_list._head.next
         even_list, odd_list = self.evens_and_odds_list.split_even_odd()
 
         self.assertEqual(len(self.evens_and_odds_list), 0)
         self.assertEqual(self.evens_and_odds_list._head, None)
         self.assertEqual(self.evens_and_odds_list._tail, None)
 
+        self.assertIs(odd_list._head, mover1)
+        self.assertIs(even_list._head, mover2)
         self.assertEqual(len(even_list), 1)
         self.assertEqual(len(odd_list), 3)
         self.assertEqual(str(even_list), "Head>  2  <Tail")
@@ -107,12 +123,16 @@ class TestEvensAndOdds(unittest.TestCase):
 
     def test_single_odd_splitter(self):
         self.evens_and_odds_list.build_forward_from_list(self.test_list8)
+        mover1 = self.evens_and_odds_list._head
+        mover2 = self.evens_and_odds_list._head.next
         even_list, odd_list = self.evens_and_odds_list.split_even_odd()
 
         self.assertEqual(len(self.evens_and_odds_list), 0)
         self.assertEqual(self.evens_and_odds_list._head, None)
         self.assertEqual(self.evens_and_odds_list._tail, None)
 
+        self.assertIs(odd_list._head, mover2)
+        self.assertIs(even_list._head, mover1)
         self.assertEqual(len(even_list), 3)
         self.assertEqual(len(odd_list), 1)
         self.assertEqual(str(even_list), "Head>  2 -> 8 -> 10  <Tail")
