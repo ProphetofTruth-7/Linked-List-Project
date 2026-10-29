@@ -25,6 +25,12 @@ class TestEvensAndOdds(unittest.TestCase):
         self.assertEqual(str(even_list), "Head>  2 -> 4 -> 6 -> 8 -> 10  <Tail")
         self.assertEqual(str(odd_list), "Head>  1 -> 3 -> 5 -> 7 -> 9 -> 11 -> 13 -> 15  <Tail")
 
+        self.assertEqual(even_list._tail.next, None)
+        self.assertEqual(even_list._tail.data, 10)
+        self.assertEqual(odd_list._tail.next, None)
+        self.assertEqual(odd_list._tail.data, 15)
+        self.assertEqual(len(self.evens_and_odds_list), 0)
+
     def test_unordered_splitter(self):
         self.evens_and_odds_list.build_forward_from_list(self.test_list4)
         even_list, odd_list = self.evens_and_odds_list.split_even_odd()
@@ -37,6 +43,12 @@ class TestEvensAndOdds(unittest.TestCase):
         self.assertEqual(len(odd_list), 4)
         self.assertEqual(str(even_list), "Head>  86 -> 34 -> 78 -> 34 -> 20 -> 4 -> 32  <Tail")
         self.assertEqual(str(odd_list), "Head>  45 -> 79 -> 39 -> 11  <Tail")
+
+        self.assertEqual(even_list._tail.next, None)
+        self.assertEqual(even_list._tail.data, 32)
+        self.assertEqual(odd_list._tail.next, None)
+        self.assertEqual(odd_list._tail.data, 11)
+        self.assertEqual(len(self.evens_and_odds_list), 0)
 
     def test_even_splitter(self):
         self.evens_and_odds_list.build_forward_from_list(self.test_list5)
@@ -51,6 +63,11 @@ class TestEvensAndOdds(unittest.TestCase):
         self.assertEqual(str(even_list), "Head>  2 -> 6 -> 8 -> 10  <Tail")
         self.assertEqual(str(odd_list), "Head>    <Tail")
 
+        self.assertEqual(even_list._tail.next, None)
+        self.assertEqual(even_list._tail.data, 10)
+        self.assertEqual(odd_list._tail, None)
+        self.assertEqual(len(self.evens_and_odds_list), 0)
+
     def test_odd_splitter(self):
         self.evens_and_odds_list.build_forward_from_list(self.test_list6)
         even_list, odd_list = self.evens_and_odds_list.split_even_odd()
@@ -63,6 +80,11 @@ class TestEvensAndOdds(unittest.TestCase):
         self.assertEqual(len(odd_list), 4)
         self.assertEqual(str(even_list), "Head>    <Tail")
         self.assertEqual(str(odd_list), "Head>  3 -> 7 -> 9 -> 11  <Tail")
+
+        self.assertEqual(even_list._tail, None)
+        self.assertEqual(odd_list._tail.next, None)
+        self.assertEqual(odd_list._tail.data, 11 )
+        self.assertEqual(len(self.evens_and_odds_list), 0)
 
     def test_single_even_splitter(self):
         self.evens_and_odds_list.build_forward_from_list(self.test_list7)
@@ -77,6 +99,12 @@ class TestEvensAndOdds(unittest.TestCase):
         self.assertEqual(str(even_list), "Head>  2  <Tail")
         self.assertEqual(str(odd_list), "Head>  3 -> 9 -> 11  <Tail")
 
+        self.assertEqual(even_list._tail.next, None)
+        self.assertEqual(even_list._tail.data, 2)
+        self.assertEqual(odd_list._tail.next, None)
+        self.assertEqual(odd_list._tail.data, 11)
+        self.assertEqual(len(self.evens_and_odds_list), 0)
+
     def test_single_odd_splitter(self):
         self.evens_and_odds_list.build_forward_from_list(self.test_list8)
         even_list, odd_list = self.evens_and_odds_list.split_even_odd()
@@ -89,6 +117,13 @@ class TestEvensAndOdds(unittest.TestCase):
         self.assertEqual(len(odd_list), 1)
         self.assertEqual(str(even_list), "Head>  2 -> 8 -> 10  <Tail")
         self.assertEqual(str(odd_list), "Head>  7  <Tail")
+
+        self.assertEqual(even_list._tail.next, None)
+        self.assertEqual(even_list._tail.data, 10)
+        self.assertEqual(odd_list._tail.next, None)
+        self.assertEqual(odd_list._tail.data, 7)
+        self.assertEqual(len(self.evens_and_odds_list), 0)
+
 
     def test_empty_list_splitter(self):
         self.evens_and_odds_list.build_forward_from_list(self.test_list9)
